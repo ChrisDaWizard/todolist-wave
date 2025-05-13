@@ -1,0 +1,563 @@
+* {
+  font-family: "Times New Roman", Times, serif;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url(images/background.png);
+  perspective: 1000px;
+}
+
+/*Ventana Principal*/
+.principal-window {
+  position: absolute;
+  width: 900px;
+  height: 600px;
+  margin-top: 20vh;
+  margin-left: 26%;
+  background-color: lightgray;
+  border: solid;
+  border-color: white black black white;
+  padding: 1px;
+}
+
+.tab {
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 0%, rgb(250, 0, 250) 100%);
+  display: flex;
+  color: lightgray;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  padding-left: 5px;
+  border: solid;
+  border-color: lightgray;
+  height: 35px;
+}
+
+.title {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  font-weight: 300;
+  color: white;
+  margin-left: 25px;
+}
+
+.tab img {
+  height: 20px;
+}
+
+.tab-btns {
+  padding: 5px;
+  display: flex;
+  margin-left: 38vw;
+  gap: 5px;
+}
+
+.tab-btns p {
+  position: relative;
+  font-weight: 900;
+  color: black;
+  background-color: lightgray;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-color: white black black white;
+  cursor: pointer;
+}
+
+/*Banner de welcome*/
+.welcome {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.welcome p {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.welcome h1 {
+  font-size: 40px;
+  font-weight: 900;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+}
+
+.welcome h1.win98 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+/*Div entero del contenido - tasklist y botones*/
+.content-box {
+  display: flex;
+  padding: 10px;
+  background: lightgray;
+  border: 1px solid;
+  border-color: black;
+  width: 100%;
+  box-sizing: border-box;
+  height: 430px;
+  gap: 20px;
+}
+
+.to-do-panel {
+  flex: 2;
+  background: #ffffe1;
+  overflow: auto; /*Changed from 'hidden' to 'auto' to allow scrolling*/
+  position: relative;
+  border: solid;
+  border-color: black white white black;
+}
+
+.to-do-panel ul {
+  list-style: none;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.to-do-panel li {
+  margin-bottom: 10px;
+}
+
+.gif {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  z-index: 0; 
+  overflow: hidden;
+  height: 400px;
+}
+
+.task-window {
+  padding: 2px;
+  background-color: lightgray;
+  height: auto; /* Changed from fixed height */
+  min-height: 80px;
+  width: 500px;
+  border: solid;
+  border-color: white black black white;
+  margin: 10px;
+  position: relative; /* Changed from absolute */
+}
+
+.tab-task {
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 0%, rgb(250, 0, 250) 100%);
+  padding-left: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.content-task {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.task-btn {
+  width: 100px;
+  margin-left: 380px;
+  border: solid;
+  border-color: white black black white;
+  cursor: pointer;
+}
+
+.control-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.intro-task {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 19px;
+}
+
+.input-task {
+  box-sizing: border-box;
+  width: 14vw;
+  height: 40px;
+  padding: 3px;
+}
+
+.control-panel select {
+  height: 40px;
+  width: 14vw;
+}
+
+.control-panel button {
+  border: solid;
+  border-color: white black black white;
+  cursor: pointer;
+  height: 40px;
+  width: 14vw;
+}
+
+.control-panel button.clicked{
+  border: solid;
+  border-color: black white white black;
+  cursor: pointer;
+  height: 40px;
+  width: 14vw;
+}
+
+.task-tab {
+  margin-top: 5px;
+  background-color: lightgray;
+  box-sizing: border-box;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+  border-color: #000;
+}
+
+.title-task {
+  margin-left: 10px;
+}
+
+/*icono ask for wisdom*/
+.book {
+  position: absolute;
+  top: 85vh;
+  left: 5vw;
+  width: 100px;
+  cursor: grab;
+  animation: vaiven 1s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes vaiven {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.book img {
+  height: 65px;
+}
+
+.tab-wisdom {
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 0%, rgba(0, 246, 250, 1) 100%);
+  border: 2px solid;
+  border-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wisdom-title {
+  color: white;
+  padding: 2px;
+}
+
+.wisdom-btn {
+  color: black;
+  font-weight: 900;
+  background-color: lightgray;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-color: white black black white;
+  cursor: pointer;
+}
+
+.book-msg {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+  background-color: lightgray;
+  top: 75vh;
+  left: 14vw;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  border: 2px solid;
+  border-color: white black black white;
+}
+
+.book-msg p {
+  padding: 2px;
+}
+
+.book-msg.mostrar {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s;
+  z-index: 10;
+}
+
+/*tab de informacion superior-nombre y pagina*/
+
+.tab-principal {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  top: 0px;
+  padding: 10px;
+  width: 100%;
+  background: #090979;
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 0%, rgb(250, 0, 250) 100%);
+  gap: 10px;
+  border: 2px solid;
+  border-color: white black black white;
+}
+
+.logo-author {
+  height: 30px;
+  width: 30px;
+  padding: 10px;
+  animation: rotate 5s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.name-info p {
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+}
+
+/*icono de musica*/
+.music {
+  position: absolute;
+  top: 87vh;
+  left: 90vw;
+  width: 100px;
+  cursor: url(images/pointer.png) 0 0, auto;
+  animation: vaiven 1s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes vaiven {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.play-music {
+  height: 70px;
+}
+
+.play-music.playing{
+  animation:rotate 5s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.volume-container{
+  position: absolute;
+  top: 67vh;
+  left: 88.7vw;
+  width: 100px;
+  height: 170px;
+  background-color: lightgray;
+  border: solid 2px;
+  border-color: white black black white;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.volume-container.mostrar{
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.volume-container p{
+  box-sizing: border-box;
+  padding: 10px;
+  margin-left: 13px;
+}
+
+.music-slider{
+  position: absolute;
+  bottom: 80px;  
+  right: 0px;
+  width: 100px;
+  transform: rotate(-90deg); 
+  transform-origin: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+}   
+
+.music-slider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 35px;
+  background: #e0e0e0;
+  border: 2px solid;
+  border-color: white lightgray black black;
+  cursor: pointer;
+  margin-top: -16px;
+}
+
+.music-slider::-moz-range-thumb {
+  width: 20px;
+  height: 35px;
+  background: #e0e0e0;
+  border: 2px solid;
+  border-color: white lightgray black black;
+  cursor: pointer;
+}
+
+.music-slider::-webkit-slider-runnable-track {
+  height: 2px; 
+  background: lightgrey;
+  border: 2px solid;
+  border-color: black white white white;
+}
+
+.music-slider::-moz-range-track {
+  height: 2px; 
+  background: lightgrey;
+  border: 2px solid;
+  border-color: black white white white;
+}
+
+.control-panel .ask-btn{
+  cursor: url(images/book.png)0 0, auto;
+}
+
+.control-panel .cleanAll{
+  cursor: url(images/trash.png)0 0, auto;
+}
+
+.control-panel .add{
+  cursor: url(images/add.png)0 0, auto;
+}
+
+.control-panel .changeBack{
+  cursor: url(images/change.png)0 0, auto;
+}
+
+/* ventanas de decoracion*/
+.tab-deco-1{
+  position: absolute;
+  height: 410px;
+  width: 380px;
+  top: 8vh;
+  left: 2%;
+  background-color: lightgray;
+  border: solid;
+  border-color: white black black white;
+  padding: 1px;
+  box-sizing: border-box;
+  overflow: auto;
+  user-select: none;
+  z-index: 8;
+}
+.tab-deco-2{
+  position: absolute;
+  height: 360px;
+  width: 420px;
+  top: 12vh;
+  left: 3%;
+  background-color: lightgray;
+  border: solid;
+  border-color: white black black white;
+  padding: 1px;
+  box-sizing: border-box;
+  overflow: auto;
+  user-select: none;
+  z-index: 9;
+}
+.tab-deco-3{
+  position: absolute;
+  height: 310px;
+  width: 470px;
+  top: 16vh;
+  left: 4%;
+  background-color: lightgray;
+  border: solid;
+  border-color: white black black white;
+  padding: 1px;
+  box-sizing: border-box;
+  overflow: auto;
+  user-select: none;
+  z-index: 10;
+}
+
+.tab-deco-tab{
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 0%, rgb(250, 0, 250) 100%);
+  display: flex;
+  color: lightgray;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: grab;
+  padding-left: 5px;
+  border: solid;
+  border-color: lightgray;
+  height: 35px;
+}
+
+.deco{
+  position: absolute;
+  object-fit: cover;
+  margin: 5px;
+  height: 350px;
+  border: 3px solid;
+  border-color: black white white black;
+}
+.deco2{
+  position: absolute;
+  object-fit: cover;
+  margin: 5px;
+  height: 300px;
+  border: 3px solid;
+  border-color: black white white black;
+}
+.deco3{
+  position: absolute;
+  object-fit: cover;
+  margin: 5px;
+  height: 250px;
+  border: 3px solid;
+  border-color: black white white black;
+}
